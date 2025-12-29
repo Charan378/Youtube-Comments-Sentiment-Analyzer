@@ -1,55 +1,141 @@
-YouTube Comment Sentiment Analysis Bot
+🎥**YouTube Comment Sentiment Analysis Bot**
 
-This project is a Robotic Process Automation (RPA) bot that automates sentiment analysis of YouTube video comments.
-It fetches comments using the YouTube Data API, performs sentiment analysis with Google Gemini Pro, stores results in a CSV, and delivers a rich HTML email report.
+An **RPA-powered automation bot** that fetches YouTube video comments, analyzes their sentiment using **Google Gemini Pro**, stores results in a CSV file, and delivers a **rich HTML email report**.
 
-✨ Features
-Interactive Input → Prompts user for YouTube video URL & Gemini API key.
-Dynamic Video ID Extraction → Parses video ID from URL.
-AI-Powered Sentiment Analysis → Uses Gemini Pro API.
-Robust Error Handling → Try...Catch blocks for resilience.
-Data Export → Saves results into sentiment.csv.
-HTML Email Reporting → Sends a professional email report with a formatted table.
-Secure Authentication → Uses safe email credential handling.
-⚙️ Workflow
-Get User Inputs & Initialize
+This project demonstrates how RPA, APIs, and Generative AI can be combined to create an end-to-end intelligent automation solution.
 
-Prompts for YouTube URL and Gemini API Key.
-Extracts videoId from URL.
-Starts error handling.
-Fetch YouTube Comments
+ ✨ Features
 
-Calls YouTube Data API (commentThreads endpoint).
-Extracts top-level comments.
-Analyze Sentiment with Gemini API
+* **Interactive Input**
+  Prompts the user for a YouTube video URL and Gemini API key.
 
-Sends comments to Gemini Pro.
-Receives sentiment predictions.
-Build Data Table & CSV
+* **Dynamic Video ID Extraction**
+  Automatically parses the `videoId` from the provided YouTube URL.
 
-Creates table with Comment + Sentiment.
-Exports results to sentiment.csv.
-Generate & Send HTML Email Report
+* **AI-Powered Sentiment Analysis**
+  Uses **Google Gemini Pro API** to classify comment sentiment.
 
-Builds HTML <table> report.
-Sends via SMTP (with IsBodyHtml = true).
-Final Confirmation & Error Management
+* **Robust Error Handling**
+  Implements Try/Catch logic for fault-tolerant execution.
 
-Displays "Process Completed Successfully and Report Sent".
-Handles exceptions gracefully.
-🚀 Getting Started
-Prerequisites
-An RPA platform (e.g., UiPath, Automation Anywhere) capable of HTTP requests.
-Google API Key → Get from Google Cloud Console.
-Gemini API Key → Get from Google AI Studio.
-SMTP Credentials (e.g., Gmail with App Password).
-Configuration
-Set these variables in your RPA tool:
+* **Data Export**
+  Saves comment sentiment results to `sentiment.csv`.
 
-Variable	Example Value
-YOUTUBE_API_KEY	AIza...
-SMTP_HOST	smtp.gmail.com
-SMTP_PORT	587
-SENDER_EMAIL	your_email@gmail.com
-RECIPIENT_EMAIL	recipient@example.com
-SENDER_EMAIL_PASSWORD	App Password / Credential Store
+* **HTML Email Reporting**
+  Sends a professional email report with a formatted HTML table.
+
+* **Secure Authentication**
+  Supports safe email credential handling (App Passwords / Credential Store).
+
+---
+
+## ⚙️ Workflow
+
+### 1️⃣ Get User Inputs & Initialize
+
+* Prompts for:
+
+  * YouTube Video URL
+  * Gemini API Key
+* Extracts `videoId` from the URL.
+* Initializes error handling.
+
+### 2️⃣ Fetch YouTube Comments
+
+* Calls the **YouTube Data API** (`commentThreads` endpoint).
+* Extracts top-level comments.
+
+### 3️⃣ Analyze Sentiment with Gemini Pro
+
+* Sends comments to the Gemini Pro API.
+* Receives sentiment predictions (e.g., Positive, Negative, Neutral).
+
+### 4️⃣ Build Data Table & CSV
+
+* Creates a structured table with:
+
+  * Comment Text
+  * Sentiment
+* Exports results to `sentiment.csv`.
+
+### 5️⃣ Generate & Send HTML Email Report
+
+* Builds an HTML `<table>` with sentiment results.
+* Sends the report via SMTP (`IsBodyHtml = true`).
+
+### 6️⃣ Final Confirmation & Error Management
+
+* Displays:
+
+  ```
+  Process Completed Successfully and Report Sent
+  ```
+* Handles exceptions gracefully with meaningful error messages.
+
+---
+
+## 🚀 Getting Started
+
+### 🔧 Prerequisites
+
+* An **RPA platform** capable of HTTP requests
+  *(UiPath, Automation Anywhere, etc.)*
+* **YouTube Data API Key**
+  → Obtain from Google Cloud Console
+* **Gemini API Key**
+  → Obtain from Google AI Studio
+* **SMTP Credentials**
+  *(e.g., Gmail with App Password enabled)*
+
+---
+
+## 🔑 Configuration
+
+Set the following variables in your RPA tool:
+
+| Variable Name           | Example Value                   |
+| ----------------------- | ------------------------------- |
+| `YOUTUBE_API_KEY`       | `AIza...`                       |
+| `SMTP_HOST`             | `smtp.gmail.com`                |
+| `SMTP_PORT`             | `587`                           |
+| `SENDER_EMAIL`          | `your_email@gmail.com`          |
+| `RECIPIENT_EMAIL`       | `recipient@example.com`         |
+| `SENDER_EMAIL_PASSWORD` | App Password / Credential Store |
+
+---
+
+## 📂 Output
+
+* **CSV File:** `sentiment.csv`
+* **Email Report:**
+
+  * HTML formatted table
+  * Sent automatically upon successful execution
+
+---
+
+## 🛡️ Error Handling
+
+* API failures (YouTube / Gemini)
+* Invalid video URLs
+* Email delivery issues
+* Network or authentication errors
+
+All exceptions are caught and logged without crashing the workflow.
+
+---
+
+## 📌 Use Cases
+
+* Social media sentiment monitoring
+* Brand reputation analysis
+* Customer feedback insights
+* AI-powered automation demos
+* RPA + GenAI proof-of-concept projects
+
+---
+
+## 📜 License
+
+This project is provided for educational and demonstration purposes.
+Feel free to modify and extend it as needed.
